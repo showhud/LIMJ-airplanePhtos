@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIMJ摄影协会 - 捕捉天空之美</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #3498db;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* 主要内容区域 */
+        main {
+            min-height: calc(100vh - 140px);
+            padding: 40px 0;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* 主页样式 */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .upload-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .step {
+            flex: 0 0 30%;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        /* 飞机图片页样式 */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-title h1 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+        }
+        
+        .page-title p {
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .photo-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-info {
+            padding: 15px;
+        }
+        
+        .photo-info h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .photo-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .step {
+                flex: 0 0 100%;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">LIMJ<span>摄影协会</span></div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active" data-page="home">主页</a></li>
+                    <li><a href="#" data-page="aircraft">飞机图片</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- 主页内容 -->
+        <div id="home-page" class="page active">
+            <div class="container">
+                <section class="hero">
+                    <h1>捕捉天空之美</h1>
+                    <p>LIMJ摄影协会致力于航空摄影艺术，记录飞行器的优雅与力量，分享天空中的精彩瞬间。</p>
+                </section>
+                
+                <section class="content-section">
+                    <h2>关于我们</h2>
+                    <p>LIMJ摄影协会成立于2015年，是一个专注于航空摄影的爱好者组织。我们聚集了来自全国各地的航空摄影爱好者，共同分享拍摄技巧、交流摄影心得，并定期组织航空摄影活动。</p>
+                    <p>我们的会员作品曾多次在国内外摄影比赛中获奖，并在多家航空杂志和网站上刊登。无论您是专业摄影师还是航空摄影新手，我们都欢迎您的加入！</p>
+                </section>
+                
+                <section class="content-section">
+                    <h2>如何上传图片</h2>
+                    <p>我们欢迎所有会员上传自己的航空摄影作品。请按照以下步骤操作：</p>
+                    
+                    <div class="upload-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>注册会员</h3>
+                            <p>首先需要成为LIMJ摄影协会的注册会员</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>准备图片</h3>
+                            <p>确保图片清晰，分辨率不低于1920x1080，格式为JPG或PNG</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>填写信息</h3>
+                            <p>为图片添加标题、描述和拍摄信息</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>上传图片</h3>
+                            <p>通过会员中心的"上传图片"功能提交您的作品</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <h3>等待审核</h3>
+                            <p>我们的编辑团队会在3个工作日内审核您的作品</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <h3>发布展示</h3>
+                            <p>审核通过后，您的作品将在网站展示</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <!-- 飞机图片页内容 -->
+        <div id="aircraft-page" class="page">
+            <div class="container">
+                <div class="page-title">
+                    <h1>飞机摄影作品</h1>
+                    <p>欣赏LIMJ摄影协会会员拍摄的精彩飞机照片，感受航空摄影的魅力</p>
+                </div>
+                
+                <div class="gallery" id="aircraft-gallery">
+                    <!-- 图片将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 LIMJ摄影协会 版权所有</p>
+            <p>联系我们: contact@limj-photo.org | 关注我们: @LIMJ摄影协会</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 页面切换功能
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-links a').forEach(a => {
+                    a.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // 切换页面显示
+                const targetPage = this.getAttribute('data-page');
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(`${targetPage}-page`).classList.add('active');
+            });
+        });
+        
+        // 飞机图片数据 - 这里可以轻松修改图片URL
+        const aircraftPhotos = [
+            {
+                id: 1,
+                title: "波音74F",
+                description: "拍摄于上海浦东国际机场",
+                url: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            }
+        ];
+        
+        // 动态加载飞机图片
+        function loadAircraftPhotos() {
+            const gallery = document.getElementById('aircraft-gallery');
+            
+            aircraftPhotos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.className = 'photo-card';
+                
+                photoCard.innerHTML = `
+                    <img src="${photo.url}" alt="${photo.title}">
+                    <div class="photo-info">
+                        <h3>${photo.title}</h3>
+                        <p>${photo.description}</p>
+                    </div>
+                `;
+                
+                gallery.appendChild(photoCard);
+            });
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAircraftPhotos();
+        });
+    </script>
+</body>
+</html>
